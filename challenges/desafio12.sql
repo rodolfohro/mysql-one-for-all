@@ -9,11 +9,11 @@ SELECT
 FROM
     SpotifyClone.performers AS P
 JOIN
-    SpotifyClone.album al ON P.id_performer = al.id_performer
+    SpotifyClone.album AS A ON P.id_performer = A.id_performer
 JOIN
-    SpotifyClone.songs m ON al.id_album = m.id_album
+    SpotifyClone.songs S ON A.id_album = S.id_album
 LEFT JOIN
-    SpotifyClone.favorites AS  F ON m.id_songs = F.id_songs
+    SpotifyClone.favorites AS  F ON S.id_songs = F.id_songs
 GROUP BY
     P.id_performer, P.names
 ORDER BY
